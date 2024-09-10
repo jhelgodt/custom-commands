@@ -14,3 +14,9 @@ serenade.global().command("spotlight <%text%>", async (api, matches) => {
 serenade.global().command("open mission control", async (api) => {
   await api.pressKey("up", ["control"]);
 });
+// Skript för att öppna Mission Control med längre tangenttryckning
+serenade.global().command("open mission control", async (api) => {
+  await api.pressAndHoldKey("control");
+  await api.pressKey("up");
+  await api.releaseKey("control");
+});
