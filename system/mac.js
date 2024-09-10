@@ -1,3 +1,18 @@
+// Function to press Alt + Space, wait for 10 seconds, then press Alt + Space again
+serenade.global().command("pause listening", async (api) => {
+  // Press Alt + Space to pause listening
+  await api.pressKey("space", ["alt"]);
+  console.log("Listening paused");
+
+  // Wait for 10 seconds
+  await new Promise((resolve) => setTimeout(resolve, 15000));
+
+  // Press Alt + Space again to resume listening
+  await api.pressKey("space", ["alt"]);
+  console.log("Listening resumed");
+});
+
+// Existing commands
 serenade.global().command("next desktop", async (api) => {
   await api.pressKey("right", ["control"]);
 });
